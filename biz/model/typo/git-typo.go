@@ -9,8 +9,8 @@ import (
 )
 
 type GitTypoReq struct {
-	GitUrl string `thrift:"GitUrl,1" json:"GitUrl" query:"gitLink"`
-	Config string `thrift:"Config,2" json:"Config" query:"config"`
+	GitLink string `thrift:"GitLink,1" json:"gitLink" query:"gitLink" form:"GitLink" `
+	Config  string `thrift:"Config,2" json:"Config" query:"config"`
 }
 
 func NewGitTypoReq() *GitTypoReq {
@@ -20,8 +20,8 @@ func NewGitTypoReq() *GitTypoReq {
 func (p *GitTypoReq) InitDefault() {
 }
 
-func (p *GitTypoReq) GetGitUrl() (v string) {
-	return p.GitUrl
+func (p *GitTypoReq) GetGitLink() (v string) {
+	return p.GitLink
 }
 
 func (p *GitTypoReq) GetConfig() (v string) {
@@ -29,7 +29,7 @@ func (p *GitTypoReq) GetConfig() (v string) {
 }
 
 var fieldIDToName_GitTypoReq = map[int16]string{
-	1: "GitUrl",
+	1: "GitLink",
 	2: "Config",
 }
 
@@ -105,7 +105,7 @@ func (p *GitTypoReq) ReadField1(iprot thrift.TProtocol) error {
 	} else {
 		_field = v
 	}
-	p.GitUrl = _field
+	p.GitLink = _field
 	return nil
 }
 func (p *GitTypoReq) ReadField2(iprot thrift.TProtocol) error {
@@ -153,10 +153,10 @@ WriteStructEndError:
 }
 
 func (p *GitTypoReq) writeField1(oprot thrift.TProtocol) (err error) {
-	if err = oprot.WriteFieldBegin("GitUrl", thrift.STRING, 1); err != nil {
+	if err = oprot.WriteFieldBegin("GitLink", thrift.STRING, 1); err != nil {
 		goto WriteFieldBeginError
 	}
-	if err := oprot.WriteString(p.GitUrl); err != nil {
+	if err := oprot.WriteString(p.GitLink); err != nil {
 		return err
 	}
 	if err = oprot.WriteFieldEnd(); err != nil {

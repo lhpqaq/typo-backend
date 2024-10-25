@@ -24,8 +24,9 @@ func GitTypoMethod(ctx context.Context, c *app.RequestContext) {
 		return
 	}
 	fmt.Println(req)
-	resp, err := service.CheckTypo(req.GitUrl)
+	resp, err := service.CheckTypo(req.GitLink)
 	if err != nil {
+		fmt.Println(err)
 		c.String(consts.StatusInternalServerError, err.Error())
 		return
 	}

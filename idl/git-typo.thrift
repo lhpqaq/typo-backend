@@ -2,7 +2,7 @@
 namespace go typo
 
 struct GitTypoReq {
-    1: string GitUrl (api.query="gitLink");
+    1: string GitLink  (go.tag =  'json:"gitLink" query:"gitLink"');
     2: string Config (api.query="config");
 }
 
